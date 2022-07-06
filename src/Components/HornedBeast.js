@@ -1,19 +1,38 @@
 import { Component } from "react";
 
 class HornedBeast extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      numOfClicks: "",
+    };
+  }
+  pickFavourite = () => {
+
+    this.setState({
+    numOfClicks: this.state.numOfClicks + "❤️",
+    });
+  }
+
   render() {
     return (
       <>
         <h2>{this.props.title}</h2>
         <img
           src={this.props.imageUrl}
+          onClick={this.pickFavourite}
           alt={this.props.description}
           title={this.props.title}
-          style={{ width: "20%" }}
+          style={{ width: "100%" }}
         />
         <p>{this.props.description}</p>
+        <span>{this.state.numOfClicks}</span>
       </>
     );
+
+    
+    
   }
 }
 
