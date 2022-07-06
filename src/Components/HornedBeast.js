@@ -11,6 +11,7 @@ class HornedBeast extends Component {
           title={this.props.title}
           style={{ width: "20%" }}
         />
+        <p>{this.props.description}</p>
       </>
     );
   }
