@@ -1,8 +1,7 @@
 import { Component } from "react";
 import HornedBeast from "./HornedBeast";
-import data from "./data.json";
 import { Container, Row, Col } from "react-bootstrap";
-import ThemeProvider from 'react-bootstrap/ThemeProvider'
+
 
 class Main extends Component {
   render() {
@@ -11,7 +10,7 @@ class Main extends Component {
       <div className="main">
         <Container fluid>
           <Row  xxs={1} xs={2} sm={3} md={4} lg={5} xl={6} xxl={7} xxxl={8}>
-            {data.map((beast) => {
+            {this.props.data.map((beast) => {
               return (
                 <Col key={beast.title}>
                   <HornedBeast
