@@ -1,7 +1,6 @@
 import { Component } from "react";
 
 class HornedBeast extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -9,11 +8,12 @@ class HornedBeast extends Component {
     };
   }
   pickFavourite = () => {
-
     this.setState({
-    numOfClicks: this.state.numOfClicks + "❤️",
+      numOfClicks: this.state.numOfClicks + "❤️",
     });
-  }
+
+    this.props.displayAsModal(this.props.title);
+  };
 
   render() {
     return (
@@ -30,9 +30,6 @@ class HornedBeast extends Component {
         <span>{this.state.numOfClicks}</span>
       </>
     );
-
-    
-    
   }
 }
 
