@@ -6,6 +6,7 @@ import Footer from "./Components/Footer";
 import data from "./Components/data.json";
 import { Component } from "react";
 import SelectedBeast from "./Components/SelectedBeast";
+import Form from 'react-bootstrap/Form';
 
 class App extends Component {
   constructor(props) {
@@ -34,10 +35,23 @@ class App extends Component {
     this.setState({ displayModal: false });
   };
 
+
   render() {
     return (
       <div className="App">
         <Header />
+        <Form>
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>How Many Horns?</Form.Label>
+            <Form.Control as="select" onChange={this.filter}>
+              <option value="">All</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </Form.Control>
+          </Form.Group>
+        </Form>
+
         <Main
           allBeasts={this.state.allBeasts}
           displayAsModal={this.displayAsModal}

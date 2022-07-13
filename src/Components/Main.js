@@ -3,6 +3,8 @@ import HornedBeast from "./HornedBeast";
 import { Container, Row, Col } from "react-bootstrap";
 
 class Main extends Component {
+
+  // if option 1 is selected = show all hornedbeasts with 1 horn. 
   render() {
     return (
       <div className="main">
