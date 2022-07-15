@@ -6,7 +6,7 @@ import Footer from "./Components/Footer";
 import data from "./Components/data.json";
 import { Component } from "react";
 import SelectedBeast from "./Components/SelectedBeast";
-import Form from 'react-bootstrap/Form';
+import Form from "react-bootstrap/Form";
 
 class App extends Component {
   constructor(props) {
@@ -35,6 +35,21 @@ class App extends Component {
     this.setState({ displayModal: false });
   };
 
+  filterBeasts = (event) => {
+    const filteredBeasts = data.filter((item) => {
+      return item.horns === parseInt(event.target.value);
+    });
+
+    if (event.target.value === "") {
+      this.setState({
+        allBeasts: data,
+      });
+    } else {
+      this.setState({
+        allBeasts: filteredBeasts,
+      });
+    }
+  };
 
   render() {
     return (
@@ -43,11 +58,12 @@ class App extends Component {
         <Form>
           <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>How Many Horns?</Form.Label>
-            <Form.Control as="select" onChange={this.filter}>
+            <Form.Control as="select" onChange={this.filterBeasts}>
               <option value="">All</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
+              <option value="100">More than 3</option>
             </Form.Control>
           </Form.Group>
         </Form>
